@@ -3,11 +3,11 @@ import { Award, ShieldCheck, TrendingUp, Globe, Users, Building, HeartHandshake,
 import { motion, AnimatePresence, Variants, useInView } from 'framer-motion';
 
 // --- PLACEHOLDER ASSETS ---
-const heroVideo = "src/assets/partner.webm";
-const qualityImage = 'src/assets/productq.webp';
-const reliabilityImage = 'src/assets/partnerh.webp';
-const growthImage = 'src/assets/partnerf.webp';
-const reachImage = 'src/assets/productw.webp';
+import heroVideo from "../assets/partner.webm";
+import qualityImage from '../assets/productq.webp';
+import reliabilityImage from '../assets/partnerh.webp';
+import growthImage from '../assets/partnerf.webp';
+import reachImage from '../assets/productw.webp';
 
 
 const partnerTestimonials = [
