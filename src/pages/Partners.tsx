@@ -18,12 +18,6 @@ const partnerTestimonials = [
         review: 'Ferrari Foods has been an invaluable partner. Their commitment to on-time delivery and consistent quality is unmatched in the industry. They truly understand our needs and work proactively to meet them.'
     },
     {
-        id: 'grand-mills',
-        name: 'Grand Mills',
-        title: 'Supply Chain Director',
-        review: 'The private labeling solution provided by Ferrari Foods allowed us to launch our premium flour line seamlessly. Their attention to detail and market expertise were critical to our success.'
-    },
-    {
         id: 'iffco',
         name: 'IFFCO',
         title: 'Head of Operations',
@@ -34,6 +28,12 @@ const partnerTestimonials = [
         name: 'Al Ghurair Foods',
         title: 'Quality Assurance Lead',
         review: 'The quality of the rice and wheat from Ferrari Foods is consistently excellent, which is why we trust them with our core product lines. A professional and dependable partner.'
+    },
+     {
+        id: 'grand-mills',
+        name: 'Grand Mills',
+        title: 'Supply Chain Director',
+        review: 'The private labeling solution provided by Ferrari Foods allowed us to launch our premium flour line seamlessly. Their attention to detail and market expertise were critical to our success.'
     },
 ];
 
