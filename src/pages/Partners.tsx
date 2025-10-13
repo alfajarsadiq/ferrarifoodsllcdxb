@@ -81,7 +81,6 @@ const Partners = () => {
     { name: 'AL KHALEEJ SUGAR' },
     { name: 'AL GHURAIR FOODS' },
     { name: 'AL FAJAR AL SADIQ' },
-    { name: 'NATIONAL FLOUR MILLS' },
     { name: 'ADVOC' },
     { name: 'OMANI GULF FOODS' },
   ];
