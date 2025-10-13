@@ -3,17 +3,21 @@ import {
     ChevronLeft, ChevronRight,
     HeartHandshake, Droplets, Recycle, Search,
 } from 'lucide-react';
-import { motion, AnimatePresence, useInView, } from 'framer-motion';
-import SuccessStoriesSection from '../components/SuccessStoriesSection'; // IMPORT THE NEW COMPONENT
+import { motion, AnimatePresence, useInView } from 'framer-motion';
+import SuccessStoriesSection from '../components/SuccessStoriesSection';
 
-// --- PLACEHOLDER ASSETS ---
-const heroSlides = [
-  { image: "src/assets/cargoo.webp", title: "Our Global Presence", subtitle: "With partnerships across 7+ countries, Ferrari Foods LLC strengthens food security worldwide through the reliable delivery of premium staples." },
-  { image: "src/assets/warehousee.webp", title: "Commitment to Quality", subtitle: "Upholding the highest standards in every grain, from sourcing to delivery, across all our international markets." },
-  { image: "src/assets/in.webp", title: "Building Strong Partnerships", subtitle: "We collaborate with over 500 partners globally to ensure a seamless and efficient supply chain." }
-];
-
+// --- ASSET IMPORTS ---
+import cargooImage from '../assets/cargoo.webp';
+import warehouseeImage from '../assets/warehousee.webp';
+import inImage from '../assets/in.webp';
 import worldMapSvg from '../assets/worldmapp.svg';
+
+// --- DATA using imported assets ---
+const heroSlides = [
+  { image: cargooImage, title: "Our Global Presence", subtitle: "With partnerships across 7+ countries, Ferrari Foods LLC strengthens food security worldwide through the reliable delivery of premium staples." },
+  { image: warehouseeImage, title: "Commitment to Quality", subtitle: "Upholding the highest standards in every grain, from sourcing to delivery, across all our international markets." },
+  { image: inImage, title: "Building Strong Partnerships", subtitle: "We collaborate with over 500 partners globally to ensure a seamless and efficient supply chain." }
+];
 
 const locations = [
     { name: 'UAE', top: '48%', left: '58%', year: 2010, products: 'Basmati, Matta', distributor: 'HQ Office' },
@@ -165,19 +169,6 @@ const GlobalPresence = () => {
                         ))}
                     </div>
                 </div>
-
-                {/* <div className="mt-20 p-8 bg-gray-800 text-white rounded-2xl">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                        <div>
-                           <h3 className="text-2xl font-bold mb-4">Responsible sourcing. Reliable partnerships.</h3>
-                           <div className="flex flex-wrap gap-6 items-center">
-                               <span className="flex items-center gap-2"><ShieldCheck className="w-5 h-5 text-amber-400"/> ISO 22000</span>
-                               <span className="flex items-center gap-2"><ShieldCheck className="w-5 h-5 text-amber-400"/> HACCP</span>
-                               <span className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-amber-400"/> Halal Certified</span>
-                           </div>
-                        </div>
-                    </div>
-                </div> */}
             </div>
         </section>
 
