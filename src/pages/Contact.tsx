@@ -11,7 +11,7 @@ import omanImage from '../assets/oman.webp';
 
 
 // --- Placeholder for a background image to mimic the video effect ---
-const heroBackgroundImage = 'src/assets/contact.webp';
+import heroBackgroundImage from '../assets/contact.webp';
 
 // --- Updated Data for the Branches section with more details ---
 const branchData = [
