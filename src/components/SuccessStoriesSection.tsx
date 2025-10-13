@@ -3,8 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Building, Globe, Package, ShieldCheck, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+// --- VIDEO ASSET IMPORTS ---
+import dubaiVideo from '../assets/dubai.webm';
+import europeVideo from '../assets/europe.webm';
+import indiaVideo from '../assets/india.webm';
+
 // --- Data for Section ---
-// NOTE: Add your own video files to the 'public' folder and update the paths here.
 const successStories = [
     { 
         id: 'grand-mills',
@@ -14,7 +18,7 @@ const successStories = [
         story: "We streamlined Grand Mills' regional supply chain with a dedicated logistics framework, significantly boosting their premium flour production and market presence.", 
         cta: "View Case Study",
         link: "https://ferrarifoodsllc.blogspot.com/2025/10/wholesale-rice-supplier-uae.html",
-        videoSrc: "src/assets/dubai.webm" // Example path
+        videoSrc: dubaiVideo 
     },
     { 
         id: 'safari-foods',
@@ -24,7 +28,7 @@ const successStories = [
         story: "Enabled expansion into three new African territories by providing a consistent and reliable supply of high-quality wheat, overcoming complex logistical challenges.", 
         cta: "Explore Market Strategy",
         link: "https://ferrarifoodsllc.blogspot.com/2025/10/bulk-rice-supplier-uae-ferrari-foods-dubai.html",
-        videoSrc: "src/assets/dubai.webm" // Example path
+        videoSrc: dubaiVideo 
     },
     { 
         id: 'euro-foods',
@@ -34,7 +38,7 @@ const successStories = [
         story: "Established a fully certified organic and sustainable supply chain to meet Europe's growing demand, ensuring compliance and premium quality.",
         cta: "See Sustainability Report",
         link: "https://ferrarifoodsllc.blogspot.com/2025/10/wholesale-rice-supplier-uae.html",
-        videoSrc: "src/assets/europe.webm" // Example path
+        videoSrc: europeVideo
     },
     { 
         id: 'agro-exports',
@@ -44,7 +48,7 @@ const successStories = [
         story: "Collaborated to enhance quality assurance protocols from farm to port, leading to a 30% increase in their export market share and brand reputation.", 
         cta: "Read Quality Analysis",
         link: "https://ferrarifoodsllc.blogspot.com/2025/10/wholesale-rice-supplier-uae.html",
-        videoSrc: "src/assets/india.webm" // Example path
+        videoSrc: indiaVideo
     },
 ];
 
@@ -99,7 +103,7 @@ const SuccessStoriesSection = () => {
                                 >
                                     <h3 className="text-3xl font-bold text-gray-900 mb-4">{activeStory.title}</h3>
                                     <p className="text-gray-600 text-lg mb-6">{activeStory.story}</p>
-                                    <Link to={activeStory.link}>
+                                    <Link to={activeStory.link} target="_blank" rel="noopener noreferrer">
                                         <div className="group inline-flex items-center gap-2 font-semibold text-amber-600 hover:text-amber-700 transition-colors cursor-pointer">
                                             {activeStory.cta}
                                             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
