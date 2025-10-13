@@ -13,7 +13,7 @@ const reachImage = 'src/assets/productw.webp';
 const partnerTestimonials = [
     {
         id: 'safari',
-        name: 'Safari Foods',
+        name: 'Al Fajar Al Sadiq',
         title: 'Procurement Manager',
         review: 'Ferrari Foods has been an invaluable partner. Their commitment to on-time delivery and consistent quality is unmatched in the industry. They truly understand our needs and work proactively to meet them.'
     },
