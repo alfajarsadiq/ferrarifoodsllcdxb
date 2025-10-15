@@ -26,9 +26,13 @@ const LeadCollectionModal: React.FC<LeadCollectionModalProps> = ({ isOpen, onClo
     setMessage('');
 
     try {
+      // --- THIS IS THE CORRECTED LINE FOR VITE PROJECTS ---
+      const apiUrl = import.meta.env.VITE_API_URL;
       const fullNumber = `${countryCode}${phoneNumber}`;
-      // --- UPDATED: Switched from localhost to your network IP address ---
-      await axios.post('http://192.168.70.115:5000/api/send-lead', { phone: fullNumber });
+      
+      console.log('Attempting to send lead to:', `${apiUrl}/api/send-lead`);
+      
+      await axios.post(`${apiUrl}/api/send-lead`, { phone: fullNumber });
 
       setStatus('success');
       setMessage('Success! Your download will begin shortly.');
