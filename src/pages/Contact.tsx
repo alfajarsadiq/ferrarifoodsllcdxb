@@ -11,7 +11,7 @@ import omanImage from '../assets/oman.webp';
 
 
 // --- Placeholder for a background image to mimic the video effect ---
-import heroBackgroundImage from '../assets/contact.webp';
+const heroBackgroundImage = 'src/assets/contact.webp';
 
 // --- Updated Data for the Branches section with more details ---
 const branchData = [
@@ -101,17 +101,17 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // --- UPDATED: handleSubmit function to call the backend ---
+  // --- UPDATED: handleSubmit function to call the live backend ---
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus({ message: '', type: null });
 
     try {
-      // IMPORTANT: Replace with your actual backend URL if it's not running locally
-      const API_URL = 'http://localhost:5000/api/send-inquiry'; 
+      // --- THIS IS THE CORRECTED LINE FOR VITE PROJECTS ---
+      const apiUrl = import.meta.env.VITE_API_URL;
       
-      const response = await axios.post(API_URL, formData);
+      const response = await axios.post(`${apiUrl}/api/send-inquiry`, formData);
 
       setSubmitStatus({ message: response.data.message || 'Message sent successfully!', type: 'success' });
       // Reset form on success
