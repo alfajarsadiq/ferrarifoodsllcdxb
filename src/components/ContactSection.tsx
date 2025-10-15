@@ -82,10 +82,9 @@ const ContactSection: React.FC<ContactSectionProps> = ({ brandColors }) => {
         setStatusMessage('Sending...');
 
         try {
-            // This comment will force a new build on Vercel
-             const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+            // --- THIS IS THE CORRECTED SYNTAX FOR VITE PROJECTS ---
+            const apiUrl = import.meta.env.VITE_API_URL;
 
-            // --- THIS IS THE NEW DEBUGGING LINE ---
             console.log('Attempting to send request to:', `${apiUrl}/api/send-inquiry`);
 
             const response = await axios.post(`${apiUrl}/api/send-inquiry`, contactForm);
@@ -93,11 +92,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ brandColors }) => {
             setStatusMessage(response.data.message);
             setContactForm({ name: '', email: '', quantity: '' }); // Clear form on success
         } catch (error) {
-            // Log the detailed error for better diagnostics
             console.error('Submission Error:', error);
-            if (axios.isAxiosError(error)) {
-                console.error('Axios error details:', error.response?.data);
-            }
             setStatusMessage('Failed to send inquiry. Please try again later.');
         }
     };
@@ -179,4 +174,3 @@ const ContactSection: React.FC<ContactSectionProps> = ({ brandColors }) => {
 };
 
 export default ContactSection;
-
