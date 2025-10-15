@@ -82,7 +82,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ brandColors }) => {
         setStatusMessage('Sending...');
 
         try {
-            const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+            // This comment will force a new build on Vercel
+             const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
             // --- THIS IS THE NEW DEBUGGING LINE ---
             console.log('Attempting to send request to:', `${apiUrl}/api/send-inquiry`);
@@ -178,3 +179,4 @@ const ContactSection: React.FC<ContactSectionProps> = ({ brandColors }) => {
 };
 
 export default ContactSection;
+
