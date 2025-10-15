@@ -82,15 +82,22 @@ const ContactSection: React.FC<ContactSectionProps> = ({ brandColors }) => {
         setStatusMessage('Sending...');
 
         try {
-            // --- CHANGE 1: Use the environment variable for the API URL ---
             const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+            // --- THIS IS THE NEW DEBUGGING LINE ---
+            console.log('Attempting to send request to:', `${apiUrl}/api/send-inquiry`);
+
             const response = await axios.post(`${apiUrl}/api/send-inquiry`, contactForm);
 
             setStatusMessage(response.data.message);
             setContactForm({ name: '', email: '', quantity: '' }); // Clear form on success
         } catch (error) {
-            setStatusMessage('Failed to send inquiry. Please try again later.');
+            // Log the detailed error for better diagnostics
             console.error('Submission Error:', error);
+            if (axios.isAxiosError(error)) {
+                console.error('Axios error details:', error.response?.data);
+            }
+            setStatusMessage('Failed to send inquiry. Please try again later.');
         }
     };
 
@@ -154,7 +161,6 @@ const ContactSection: React.FC<ContactSectionProps> = ({ brandColors }) => {
                     className="mt-16 h-[450px] rounded-3xl overflow-hidden relative border-2 border-neutral-800 bg-black"
                 >
                     <div className="absolute inset-0 rounded-3xl pointer-events-none" style={{ boxShadow: 'inset 0 0 20px rgba(0,0,0,0.8)' }} />
-                    {/* --- CHANGE 2: Using a valid Google Maps embed URL --- */}
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.932443022137!2d55.1979313150055!3d24.99228498402446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f71e680a6b89f%3A0x8e2b8b9e6a72e7e3!2sFerrari%20Food%20Trading%20LLC!5e0!3m2!1sen!2sae!4v1668615000000!5m2!1sen!2sae"
                         width="100%"
