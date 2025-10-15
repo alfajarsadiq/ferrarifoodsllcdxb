@@ -158,7 +158,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ brandColors }) => {
                 >
                     <div className="absolute inset-0 rounded-3xl pointer-events-none" style={{ boxShadow: 'inset 0 0 20px rgba(0,0,0,0.8)' }} />
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.932443022137!2d55.1979313150055!3d24.99228498402446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f71e680a6b89f%3A0x8e2b8b9e6a72e7e3!2sFerrari%20Food%20Trading%20LLC!5e0!3m2!1sen!2sae!4v1668615000000!5m2!1sen!2sae"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.2575286583633!2d55.38951740000001!3d25.29555030000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5de7d4a9d9ef%3A0x1d1d16ba4897049e!2sFERRARI%20FOODS%20LLC%20DUBAI%20BRANCH!5e0!3m2!1sen!2sae!4v1760538397866!5m2!1sen!2sae"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}
@@ -174,3 +174,4 @@ const ContactSection: React.FC<ContactSectionProps> = ({ brandColors }) => {
 };
 
 export default ContactSection;
+
