@@ -3,3 +3,7 @@
     { "source": "/(.*)", "destination": "/" }
   ]
 }
+{
+  "compress": true
+}
+
