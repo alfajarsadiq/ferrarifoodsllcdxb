@@ -2,5 +2,7 @@
   "compress": true,
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
-  ]
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
