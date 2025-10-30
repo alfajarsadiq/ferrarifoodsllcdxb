@@ -1,3 +1,5 @@
+// File: src/components/WheatCollection.tsx (Updated)
+
 import React, { useState, useRef } from 'react';
 import StickyProductShowcase from './StickyProductShowcase';
 import { ArrowLeft, ArrowUpRight, ChevronLeft } from 'lucide-react';
@@ -7,8 +9,9 @@ import { motion } from 'framer-motion';
 import iffcoLogo from '../assets/iffcologo.png';
 import grandMillsLogo from '../assets/grandlogo.png';
 import alghurairLogo from '../assets/alghurairlogo.png';
+import ferrarilogo from '../assets/logo.png'
 
-// --- WHEAT PRODUCT IMAGE IMPORTS (Updated) ---
+// --- WHEAT PRODUCT IMAGE IMPORTS (Existing) ---
 import hareeswheatImg from '../assets/hareeswheat.png';
 import parathaMaidaImg from '../assets/parathamaida.png';
 import iffcoAllPurposeImg from '../assets/allpurpose.png';
@@ -39,6 +42,14 @@ import rawanimg from '../assets/rawan.png';
 import rodhaoneImg from '../assets/rodhaone.png';
 import rodhatwoImg from '../assets/rodhatwo.png';
 import zeinImg from '../assets/zein.png';
+
+// 🔥 NEW FERRARI FOODS IMAGE IMPORTS
+// NOTE: Assuming these files exist in the assets directory.
+import arabicImg from '../assets/arabic.png';
+import bakersImg from '../assets/bakers.png';
+import allflourImg from '../assets/allflour.png';
+import sspecialImg from '../assets/sspecial.png';
+import sparathaImg from '../assets/sparatha.png';
 
 
 // --- Wheat Products Data ---
@@ -76,7 +87,44 @@ const wheatProducts = [
   { id: 'GrandMills-all-baking-flour', name: 'All Baking Flour', image: allbakingImg, description: 'Your go-to flour for all baking adventures. Perfectly balanced for cakes, cookies, and muffins.', features: ["Versatile Baking Flour", "Perfect for Cakes & Cookies", "Consistent Results", "Enriched & Pre-sifted"] },
   { id: 'GrandMills-semolina', name: 'Semolina', image: semolineImg, description: 'Coarsely ground durum wheat, ideal for making traditional pasta, couscous, and upma.', features: ["Coarse Durum Wheat", "Ideal for Pasta & Upma", "Used in Desserts", "Rich in Protein"] },
   { id: 'GrandMills-chakki-atta', name: 'Chakki Atta', image: flourn3Img, description: 'Authentic stone-ground whole wheat flour that locks in natural dietary fiber and aroma.', features: ["Authentic Chakki Fresh", "100% Whole Wheat", "High in Fiber", "For Soft & Fluffy Rotis"] },
-  { id: 'GrandMills-pashtun-flour-n1', name: 'Pashtun Flour No. 1', image: pashtunimg, description: 'A high-quality, fine Pashtun-style flour, perfect for creating authentic, soft traditional breads.', features: ["Authentic Pashtun Style", "Premium No. 1 Grade", "Ideal for Naan & Roti", "Fine, Soft Texture"] }
+  { id: 'GrandMills-pashtun-flour-n1', name: 'Pashtun Flour No. 1', image: pashtunimg, description: 'A high-quality, fine Pashtun-style flour, perfect for creating authentic, soft traditional breads.', features: ["Authentic Pashtun Style", "Premium No. 1 Grade", "Ideal for Naan & Roti", "Fine, Soft Texture"] },
+  
+  // 🔥 FERRARI FOODS PRODUCTS
+  { 
+    id: 'FerrariFoods-sahara-arabic', 
+    name: 'Sahara Arabic Flour', 
+    image: arabicImg, 
+    description: 'Premium quality Arabic flour, perfectly milled for making traditional Arabic breads, pastries, and sweets with an authentic texture.', 
+    features: ["Authentic Arabic Recipe", "Ideal for Khubz & Pita", "Premium Wheat Blend", "Consistent Baking Quality"] 
+  },
+  { 
+    id: 'FerrariFoods-sahara-bakers', 
+    name: 'Sahara Bakers Flour', 
+    image: bakersImg, 
+    description: 'High-protein flour designed specifically for professional bakers, ensuring excellent volume and structure in loaves and rolls.', 
+    features: ["High Protein Content", "Professional Grade", "Excellent Volume & Rise", "Perfect for Yeast Breads"] 
+  },
+  { 
+    id: 'FerrariFoods-sahara-all-purpose', 
+    name: 'Sahara All Purpose Flour', 
+    image: allflourImg, 
+    description: 'A highly versatile flour suitable for a wide range of cooking and baking needs, from thickening sauces to making delicious cakes and cookies.', 
+    features: ["Highly Versatile", "Reliable Performance", "Ideal for Baking & Frying", "Smooth Consistency"] 
+  },
+  { 
+    id: 'FerrariFoods-sahara-special-maida', 
+    name: 'Sahara Special Maida', 
+    image: sspecialImg, 
+    description: 'Extra fine maida flour, often used for specialty Indian sweets, deep-fried snacks, and delicate confectionery items.', 
+    features: ["Extra Fine Maida", "For Indian Sweets", "Crispy Frying Results", "Premium White Flour"] 
+  },
+  { 
+    id: 'FerrariFoods-sahara-paratha', 
+    name: 'Sahara Paratha Flour', 
+    image: sparathaImg, 
+    description: 'Optimally balanced flour that gives your parathas the perfect blend of softness and flakiness, making them easy to roll and cook.', 
+    features: ["Soft & Flaky Parathas", "Easy to Roll", "High Elasticity Dough", "Consistent Quality"] 
+  },
 ];
 
 // --- Brands Data ---
@@ -84,6 +132,8 @@ const brands = [
   { name: 'IFFCO', logo: iffcoLogo, key: 'IFFCO' },
   { name: 'Grand Mills', logo: grandMillsLogo, key: 'GrandMills' },
   { name: 'Al Ghurair', logo: alghurairLogo, key: 'al-ghurair' },
+  // 🔥 FIX: Renamed brand key to remove space and match product IDs
+  { name: 'Ferrari Foods', logo: ferrarilogo, key: 'FerrariFoods' }, 
 ];
 
 const WheatCollection = ({ onEnquiry }: { onEnquiry: (productName: string) => void }) => {
@@ -99,6 +149,7 @@ const WheatCollection = ({ onEnquiry }: { onEnquiry: (productName: string) => vo
     wheatSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // The filter logic now correctly uses the modified key
   const filteredProducts = selectedBrand
     ? wheatProducts.filter(p => p.id.startsWith(selectedBrand))
     : [];
@@ -120,7 +171,7 @@ const WheatCollection = ({ onEnquiry }: { onEnquiry: (productName: string) => vo
                 We source our high-quality wheat products from the most trusted names in the industry.
               </p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {brands.map((brand) => (
                 <motion.div
                   key={brand.key}
