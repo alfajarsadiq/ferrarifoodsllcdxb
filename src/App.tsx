@@ -15,7 +15,7 @@ import Footer from './components/Footer';
 import LeadCollectionModal from './components/LeadCollectionModal'; // Import the new modal
 
 // --- ASSET ---
-const catalogPdf = 'src/assets/company-profile.pdf'; // Make sure this path is correct
+const catalogPdf = 'src/assets/FerrariFoodsProfile.pdf'; // Make sure this path is correct
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
