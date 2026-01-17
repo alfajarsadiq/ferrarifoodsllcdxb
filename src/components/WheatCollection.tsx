@@ -56,7 +56,7 @@ import maida2020 from '../assets/2020maida.png';
 import roti2020 from '../assets/2020roti.png';
 import dostf from '../assets/dostf.png';
 import gold5050 from '../assets/5050gold.png';
-import jfatta from '../assets/jatta.png';
+import jfatta from '../assets/jfatta.png';
 import gmaida from '../assets/gmaida.png';
 import lamisf from '../assets/lamisf.png';
 import batta from '../assets/batta.png';
@@ -331,3 +331,4 @@ const WheatCollection = ({ onEnquiry }: { onEnquiry: (productName: string) => vo
 };
 
 export default WheatCollection;
+
