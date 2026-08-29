@@ -1,11 +1,12 @@
 import React, { useRef } from 'react';
-import { Wheat, Package, Award, Truck, ChevronDown, Quote, Star } from 'lucide-react';
+import { Wheat, Package, Droplet, Award, Truck, ChevronDown, Quote, Star } from 'lucide-react';
 import { motion, Variants } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 // --- COMPONENT IMPORTS ---
 import StickyProductShowcase from '../components/StickyProductShowcase';
 import WheatCollection from '../components/WheatCollection';
+import OilCollection from '../components/OilCollection';
 
 // --- ASSET IMPORTS ---
 import heroImage from '../assets/product.webm';
@@ -99,6 +100,7 @@ const itemVariants: Variants = {
 const Products = () => {
   const riceSectionRef = useRef<HTMLDivElement>(null);
   const wheatSectionRef = useRef<HTMLDivElement>(null);
+  const oilSectionRef = useRef<HTMLDivElement>(null);
 
   const handleEnquiry = (productName: string) => {
     const phoneNumber = '971585639040';
@@ -114,6 +116,10 @@ const Products = () => {
 
   const scrollToWheat = () => {
     wheatSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const scrollToOil = () => {
+    oilSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
@@ -135,7 +141,7 @@ const Products = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              Excellence in Every Grain
+              Excellence in Every Grain & Drop
             </motion.h1>
             <motion.p
               className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-200 text-shadow"
@@ -143,7 +149,7 @@ const Products = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
             >
-              Discover our portfolio of premium rice and wheat, cultivated and processed to meet the highest global standards.
+              Discover our portfolio of premium rice, wheat, and edible oils, cultivated and processed to meet the highest global standards.
             </motion.p>
           </motion.div>
           <motion.div
@@ -163,33 +169,51 @@ const Products = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Specializations</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Premium rice and wheat varieties sourced from the finest global suppliers.
+              Premium rice, wheat, and edible oil varieties sourced from the finest global suppliers.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div 
-              className="text-center p-8 bg-white rounded-lg shadow-md cursor-pointer transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+              className="text-center p-8 bg-white rounded-lg shadow-md cursor-pointer transition-transform duration-300 hover:scale-105 hover:shadow-xl flex flex-col justify-between"
               onClick={scrollToRice}
             >
-              <div className="bg-gray-200 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Wheat className="h-10 w-10 text-gray-800" />
+              <div>
+                <div className="bg-gray-200 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Wheat className="h-10 w-10 text-gray-800" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Premium Rice Varieties</h3>
+                <p className="text-gray-600 text-lg">
+                  From aromatic Basmati to nutritious red rice, our collection features the world's finest rice varieties.
+                </p>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Premium Rice Varieties</h3>
-              <p className="text-gray-600 text-lg">
-                From aromatic Basmati to nutritious red rice, our collection features the world's finest rice varieties.
-              </p>
             </div>
             <div 
-              className="text-center p-8 bg-white rounded-lg shadow-md cursor-pointer transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+              className="text-center p-8 bg-white rounded-lg shadow-md cursor-pointer transition-transform duration-300 hover:scale-105 hover:shadow-xl flex flex-col justify-between"
               onClick={scrollToWheat}
             >
-              <div className="bg-gray-200 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Package className="h-10 w-10 text-gray-800" />
+              <div>
+                <div className="bg-gray-200 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Package className="h-10 w-10 text-gray-800" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Quality Wheat Products</h3>
+                <p className="text-gray-600 text-lg">
+                  From specialty flours to wholesome atta, our wheat products serve diverse culinary applications with excellence.
+                </p>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Quality Wheat Products</h3>
-              <p className="text-gray-600 text-lg">
-                From specialty flours to wholesome atta, our wheat products serve diverse culinary applications with excellence.
-              </p>
+            </div>
+            <div 
+              className="text-center p-8 bg-white rounded-lg shadow-md cursor-pointer transition-transform duration-300 hover:scale-105 hover:shadow-xl flex flex-col justify-between"
+              onClick={scrollToOil}
+            >
+              <div>
+                <div className="bg-gray-200 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Droplet className="h-10 w-10 text-gray-800" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Edible Oil Products</h3>
+                <p className="text-gray-600 text-lg">
+                  From refined palm olein to pure vegetable oils, our collection provides top-grade cooking oils.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -208,6 +232,11 @@ const Products = () => {
       {/* --- WHEAT SECTION --- */}
       <div ref={wheatSectionRef}>
         <WheatCollection onEnquiry={handleEnquiry} />
+      </div>
+
+      {/* --- OIL SECTION --- */}
+      <div ref={oilSectionRef}>
+        <OilCollection onEnquiry={handleEnquiry} />
       </div>
 
       {/* --- TESTIMONIALS SECTION --- */}
